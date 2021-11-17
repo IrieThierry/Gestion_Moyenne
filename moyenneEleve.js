@@ -8,7 +8,6 @@ let Annulation = document.querySelector('.Annulation')
 let insertion = document.querySelectorAll('.insertion')
 let validation = document.querySelector('.validation')
 
-
 //Afficher Pop Up ( Modal )
 btn_ajout.addEventListener('click',function() {
     modal.style.top ='0'
@@ -62,6 +61,9 @@ function Donnees() {
         }
 }
 
+
+
+
 let liste_eleve = Donnees()
 
 let element = document.querySelector('.table')
@@ -70,19 +72,33 @@ let html = ""
 
 liste_eleve.forEach(item => {
     html += ('<div class="table-item">'+
-    '<div class="indice-eleve">'+ (i+1)+'</div>'+
-    '<div class="info">'+
+        '<div class="indice-eleve">'+ (i+1)+'</div>'+
+        '<div class="info">'+
         '<div class="nom-eleve">'+ item.nom +' '+ item.prenom +'</div>'+
-      '<div class="notes-eleve">'+
+        '<div class="notes-eleve">'+
             '<span class="note">15</span>'+
             '<span class="note">25</span>'+
             '<span class="note"> 15 </span>'+
         '</div>'+
-    '</div>'+
+        '<span class = "ajout-note tooltip" id="ajout">'+
+        ' + <span class = "tooltiptext">'+
+                '<input type="text" class ="saisir-note" placeholder = "Note" />'+
+                '<button class ="btn-note" >Ajouter</button>'+
+                '<button class ="btn-note" >Annuler</button>'+
+         ' </span>'+
+        '</span>'+
+        '</div>'+
 
-    '</div>')
+        '</div>')
     i++
   
 });
 element.innerHTML = html
+
+let Ajouts = document.querySelectorAll('.ajout-note')
+Ajouts.forEach(item => {
+    item.addEventListener('click', ()=>{
+        console.log(item.classList);
+    })
+});
 

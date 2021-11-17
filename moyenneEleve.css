@@ -129,6 +129,11 @@ input:hover{
     width: 50%;
     margin: 2px;
 }
+
+.ajout-note{
+    font-weight: bold;
+    cursor: pointer;
+}
 .info-eleve{
     display: flex;
     flex-direction: column;
@@ -154,5 +159,54 @@ input:hover{
     background-color: black;
 
 
+}
+
+/* tooltip */
+.tooltip{
+    position: relative;
+    display: inline-block;
+}
+.tooltip .tooltiptext{
+    visibility: hidden;
+    width: 150px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+.tooltip .tooltiptext::after{
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 40%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext{
+    visibility: visible;
+}
+.saisir-note{
+    width: 80%;
+    height: 20px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+}
+.btn-note{
+    width: calc(80%/2);
+    height: 20px;
+    border-radius: 5px;
+    background-color: black;
+    text-align: center;
+    border: 1px solid white;
+    color: #fff;
 }
 
