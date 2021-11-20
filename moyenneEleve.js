@@ -28,7 +28,7 @@ validation.addEventListener('click', function(){
     let nom_eleve = document.querySelector('#nom').value
     let prenom_eleve = document.querySelector('#prenom').value
 
-    let eleve = {nom :nom_eleve, prenom:prenom_eleve}
+    let eleve = {nom :nom_eleve, prenom:prenom_eleve, notes:[2,3,5]}
 
     function Save() {
         let tab = localStorage.getItem('eleve')
@@ -48,7 +48,7 @@ validation.addEventListener('click', function(){
         insertion.forEach(function(item) {
             item.value = ""
         })
-        window.location.reload()
+
 })
 
 function Donnees() {
@@ -59,6 +59,8 @@ function Donnees() {
         else{
             return []
         }
+
+    
 }
 
 
@@ -74,13 +76,13 @@ liste_eleve.forEach(item => {
     html += ('<div class="table-item">'+
         '<div class="indice-eleve">'+ (i+1)+'</div>'+
         '<div class="info">'+
-        '<div class="nom-eleve">'+ item.nom +' '+ item.prenom +'</div>'+
+        '<div class="nom-eleve">'+ item.nom +' '+ item.prenom + item.notes[1] + '</div>'+
         '<div class="notes-eleve">'+
             '<span class="note">15</span>'+
             '<span class="note">25</span>'+
             '<span class="note"> 15 </span>'+
         '</div>'+
-        '<span class = "ajout-note tooltip" id="ajout">'+
+        '<span class = "ajout-note tooltip btn-plus" >'+
         ' + <span class = "tooltiptext">'+
                 '<input type="text" class ="saisir-note" placeholder = "Note" />'+
                 '<button class ="btn-note" >Ajouter</button>'+
@@ -96,9 +98,10 @@ liste_eleve.forEach(item => {
 element.innerHTML = html
 
 let Ajouts = document.querySelectorAll('.ajout-note')
-Ajouts.forEach(item => {
+let btns_plus = document.querySelectorAll('.btn-plus')
+btns_plus.forEach((item, i) => {
     item.addEventListener('click', ()=>{
-        console.log(item.classList);
+        console.log(i);
     })
 });
 

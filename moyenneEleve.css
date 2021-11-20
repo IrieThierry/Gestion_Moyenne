@@ -16,13 +16,14 @@ body{
 .modal{
     width: 500px;
     height: 200px;
-    background-color: beige;
+    background-color: black;
     border: 1ps solid black;
     position: absolute;
     left: 30%;
     top: -350px;
-    opacity: 0.8;
+    opacity: 1;
     text-align: center;
+    color: #fff;
 }
 input{
     width: 90%;
@@ -208,5 +209,6 @@ input:hover{
     text-align: center;
     border: 1px solid white;
     color: #fff;
+    margin: 2px;
 }
 
