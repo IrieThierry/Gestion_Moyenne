@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="moyenneEleve.css" />
     <script defer src="moyenneEleve.js"></script>
-</head>
-<body>
-    
-<main class="App">
-    <div class="modal">
+  </head>
+  <body>
+    <main class="App">
+      <div class="modal">
         <h2>ENREGISTREMENT</h2>
-        <input type="text" id="nom" name="nom" class="insertion" placeholder="Nom de l'éleve"/>
-        <input type="text" id="prenom" name="prenom" class="insertion" placeholder="Prenom de l'éleve"/>
+        <h2 class="message"></h2>
+        <input
+          type="text"
+          id="nom"
+          name="nom"
+          class="insertion"
+          placeholder="Nom de l'éleve"
+        />
+        <input
+          type="text"
+          id="prenom"
+          name="prenom"
+          class="insertion"
+          placeholder="Prenom de l'éleve"
+        />
         <div class="contente-avis">
-            <button type="button" class="validation btn-avis">Valider</button>
-            <button type="button" class="Annulation btn-avis">Annuler</button>
+          <button type="button" class="validation btn-avis">Valider</button>
+          <button type="button" class="Annulation btn-avis">Annuler</button>
         </div>
-
-    </div>
-    <header class="header"></header>
-    <div class="container">
-
+      </div>
+      <header class="header"></header>
+      <div class="container">
         <div class="liste-eleve">
-            <button class="ajout-eleve btn-ajout">Ajouter Eleve</button>
-            <div class="table">
-             
-            </div>
+          <button class="ajout-eleve btn-ajout">Ajouter Eleve</button>
+          <div class="table"></div>
         </div>
         <div class="info-eleve">
-            <div class="box box-note">
+          <div class="box box-note">
+            <h2 align="center">Eleve sécclectionné</h2>
+            <div class="box1 nom">
+              <h2 class="eleve-nom"></h2>
             </div>
-            <div class="box box-insertion">
+            <div class="box1 informationEleve">
+              <h4 class="eleve-note"></h4>
+              <h3></h3>
+              <h4 class="moyenne"></h4>
             </div>
-            <div class="box box-moyenne-general">
+          </div>
+          <div class="box box-insertion"></div>
+          <div class="box box-moyenne-general">
+            <div class="rang first">
+              <h3>Premier de Classe</h3>
+              <h4 class="premier"></h4>
+              <h4 class="cumulNote"></h4>
+              <h4 class="moyenneG"></h4>
             </div>
+            <div class="rang last">
+              <h3>Dernier de Classe</h3>
+              <h4 class="dernier"></h4>
+              <h4 class="cumulNoteD"></h4>
+              <h4 class="moyenneGd"></h4>
+            </div>
+          </div>
         </div>
-    </div>
-</main>
-
-</body>
+      </div>
+    </main>
+  </body>
 </html>

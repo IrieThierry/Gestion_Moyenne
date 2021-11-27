@@ -15,7 +15,6 @@ body{
 }
 .modal{
     width: 500px;
-    height: 200px;
     background-color: black;
     border: 1ps solid black;
     position: absolute;
@@ -24,6 +23,29 @@ body{
     opacity: 1;
     text-align: center;
     color: #fff;
+    transition: 1s;
+    padding-bottom: 25px;
+}
+
+.modalVisible{
+    top: 0;
+    transition: 1s;
+}
+.message{
+    color: red;
+    animation: anime 1s linear infinite;
+}
+
+@keyframes anime {
+    0%{
+        color: red;
+    }
+    50%{
+        color: black;
+    }
+    100%{
+        color:red;
+    }
 }
 input{
     width: 90%;
@@ -91,6 +113,7 @@ input:hover{
     background-color: beige;
     height: 100%;
     padding: 1rem;
+    
 }
 .info-eleve{
     width: 30%;
@@ -107,10 +130,20 @@ input:hover{
     justify-content: space-between;
     align-items: center;
     padding: 5px;
-    border: 1px solid rgb(0, 153, 255);
+    border: 1px solid rgb(223, 241, 253);
     background-color: rgb(207, 207, 235);
     margin-bottom: 2px;
 
+}
+.box-note > h2{
+    width: 100%;
+}
+.box-note{
+    display: flex;
+    flex-wrap: wrap;
+}
+.box1{
+    width: calc(100% / 2);
 }
 
 .indice-eleve{
@@ -124,6 +157,7 @@ input:hover{
     padding: 5px;
     display: flex;
     justify-content: center;
+
  
 }
 .nom-eleve{
@@ -134,6 +168,7 @@ input:hover{
 .ajout-note{
     font-weight: bold;
     cursor: pointer;
+    background-size: cover;
 }
 .info-eleve{
     display: flex;
@@ -153,13 +188,14 @@ input:hover{
 
 .box-note{
     width: 100%;
-    background-color: blue;
+    background-color: rgb(140, 140, 145);
 
 }
 .box-moyenne-general{
-    background-color: black;
-
-
+    background-color: rgb(207, 207, 235);
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
 }
 
 /* tooltip */
@@ -194,12 +230,19 @@ input:hover{
 .tooltip:hover .tooltiptext{
     visibility: visible;
 }
-.saisir-note{
+.champs{
     width: 80%;
     height: 20px;
     border: none;
     outline: none;
     border-radius: 2px;
+}
+.btn-ModifierNote{
+    width: 80%;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+
 }
 .btn-note{
     width: calc(80%/2);
@@ -211,4 +254,39 @@ input:hover{
     color: #fff;
     margin: 2px;
 }
+.btn-sup{
+    margin-left: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    color: red;
+} 
+.moyenne{
+    margin: 0;
+}
+h3, h4, h2,h1{
+    margin: 0;
+   
+}
 
+.btn-moins{
+    margin-left: 35px;
+}
+.saisir-index{
+    width: 45%;
+    height: 20px;
+    border-radius: none;
+}
+.rang{
+    width: calc(100% / 2);
+    height: 50%;
+    border-bottom: 1px dotted black;
+
+}
+.rang:nth-child(1){
+    border-right: 1px dotted black;
+    color: green;
+}
+.rang:nth-child(2){
+    border-right: 1px dotted black;
+    color: red;
+}
