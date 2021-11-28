@@ -35,22 +35,51 @@
       <header class="header"></header>
       <div class="container">
         <div class="liste-eleve">
-          <button class="ajout-eleve btn-ajout">Ajouter Eleve</button>
+          <div class="btn-decision">
+
+            <button class="ajout-eleve btn-ajout">Ajouter Eleve</button>
+            <button class="ajout-eleve btn-gratif">Gratification</button>
+            
+            <div class="info-gratif">
+              <input type="text" name="libele" id="">
+              <input type="number" name="noteGratif" class="noteGratif" id="">
+              <button class="btn-gratif-ajout">Valider</button>
+
+            </div>
+          </div>
+          
           <div class="table"></div>
         </div>
         <div class="info-eleve">
+          
           <div class="box box-note">
-            <h2 align="center">Eleve sécclectionné</h2>
-            <div class="box1 nom">
-              <h2 class="eleve-nom"></h2>
+            <div class="box nom">
             </div>
+
             <div class="box1 informationEleve">
-              <h4 class="eleve-note"></h4>
-              <h3></h3>
-              <h4 class="moyenne"></h4>
-            </div>
+              <div class="box1-top">
+                <h3 class="eleve-nom"></h3>
+                
+              </div>
+              <div class="box1-bottom">
+
+                  <div class="item">
+                    <span>Moyenne obtenu</span>
+                    <h4 class="moyenne"></h4>
+                  </div>
+                  <div class="item">
+                    <span>Total des notes</span> 
+                    <h4 class="eleve-note"></h4>
+                  </div>
+
+              </div>
+                
+              
+              
+              </div>
+
+            
           </div>
-          <div class="box box-insertion"></div>
           <div class="box box-moyenne-general">
             <div class="rang first">
               <h3>Premier de Classe</h3>

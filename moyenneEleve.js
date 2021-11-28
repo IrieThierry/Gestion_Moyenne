@@ -47,7 +47,7 @@ validation.addEventListener('click', function(){
     else{
     
     localStorage.setItem('uId',uniqueId()+1)
-    let eleve = {id: uniqueId(), nom :nom_eleve, prenom:prenom_eleve, notes:[]}
+    let eleve = {id: uniqueId(), nom :nom_eleve, prenom:prenom_eleve, notes:[], rang:""}
 
         function Save() {
             let tab = localStorage.getItem('eleve')
@@ -161,6 +161,7 @@ btn_note.forEach((item) => {
     })
 });
 
+let tab = []
 
 
 let listes_eleves = document.querySelectorAll('.liste-eleves')
@@ -170,22 +171,70 @@ listes_eleves.forEach(item => {
                 return(eleve.id == item.id )
 
             })
-            $(".eleve-nom").innerHTML = `Total des notes : ${eleve_trouve.nom} ${eleve_trouve.prenom}`
+            $(".eleve-nom").innerHTML = `${eleve_trouve.nom} ${eleve_trouve.prenom}`
             let longueurNotes = eleve_trouve.notes.length
             let sommedeNote = eleve_trouve.notes.reduce((a,b)=> a+b)
             eleve_note.innerHTML = `${sommedeNote}`
             let moyenne = `${(sommedeNote / longueurNotes).toFixed(2)}`
                 if (moyenne < 10) {
-                    $('.moyenne').innerHTML =`Moyenne obtenu ${moyenne}` 
-                    $('.moyenne').style.color = "red"
+                    $('.moyenne').innerHTML =` ${moyenne}` 
                 }
                 else{
     
-                    $('.moyenne').innerHTML =`Moyenne obtenu ${moyenne}` 
-                    $('.moyenne').style.color = "green"
+                    $('.moyenne').innerHTML =`${moyenne}` 
                 }
 
+    /*Rang     
+                     let note = eleve_trouve.notes.reduce((a,b) => a+b)
+                     tab.push(note)
+                     const byValue = (a,b) => b - a;
+                     let rang = tab.sort(byValue)
+                     console.log(rang);
+                     for (let index = 0; index < rang.length; index++) {
+
+                        eleveRang = liste_eleve.find(function(elev){
+                            return (elev.notes.reduce((a,b)=> a+b)) == rang[index]
+                        })
+                        eleveRang.rang = index
+                    }
+                    localStorage.setItem('eleve',lis)
+                    $('.rang').innerHTML = `${eleveRang.rang}`
+
+               /* const byValue = (a,b) => b - a;
+                let rang = tab.sort(byValue)
+                console.log(rang)
+
+                for (let index = 0; index < rang.length; index++) {
+                    eleveRang = listes_eleves.find(function(eleve){
+                        return (eleve.notes.reduce((a,b)=> a+b)) == rang[index]
+                    })
+                    eleveRang.rang = index
+                }
+                $('.rang').innerHTML = `${eleveRang.rang}`*/
+
     })
+  
+ 
+/*
+let accumul = (table)=> table.reduce((a,b)=>a+b)   
+   let clased=[]
+
+    function rang(id) {
+       liste_eleve.map((eleve)=>{
+           clased.push({
+               id:eleve.id,
+               addn: accumul(eleve.notes)
+           })
+
+        })
+        
+    }
+
+    let sorted = clased.sort((a,b)=>b.addn - a.addn)
+    console.log(sorted)
+    rang()
+
+*/
 
 // Suppression de Note
 let btnModifierNote = $$(".btn-ModifierNote")
@@ -211,13 +260,14 @@ btnModifierNote.forEach((valeur)=>{
     
 })
 let som = 0
+
 let min = liste_eleve[1].notes.reduce((a,b) => a+b)
 let max = liste_eleve[1].notes.reduce((a,b) => a+b)
 
 liste_eleve.map((item,i) =>{
     let cumulDesNotes =  item.notes.reduce((a,b)=> a+b)
     som += cumulDesNotes
-    $('.box-insertion').innerHTML = som
+  //  $('.box-insertion').innerHTML = som
 
     let monElement = liste_eleve[i].notes.reduce((a,b) => a+b)
 
@@ -238,7 +288,8 @@ liste_eleve.map((item,i) =>{
 
     let moyenneG = (elevePremier.notes.reduce((a,b)=> a+b)) / elevePremier.notes.length
     let moyenneGd = (eleveDernier.notes.reduce((a,b)=> a+b)) / elevePremier.notes.length 
- 
+    
+    
     $('.premier').innerHTML = `${elevePremier.nom} ${elevePremier.prenom}`
     $('.cumulNote').innerHTML = `Cumul des Notes : ${max}`
     $('.moyenneG').innerHTML = `Moyenne Obtenue : ${moyenneG.toFixed(2)}`
@@ -247,5 +298,24 @@ liste_eleve.map((item,i) =>{
     $('.cumulNoteD').innerHTML = `Cumul des Notes : ${min}`
     $('.moyenneGd').innerHTML = `Moyenne Obtenue : ${moyenneGd.toFixed(2)}`
 
+   
+
 })
+
+// GRATIFICATION
+
+$('.btn-gratif').addEventListener('click',()=>{
+    $('.info-gratif').style.display = "block"
+})
+
+$('.btn-gratif-ajout').addEventListener('click', function() {
+    liste_eleve.map(item=>{
+        let noteGratif = Number($('.noteGratif').value)
+        item.notes.push(noteGratif)
+    })
+    $('.info-gratif').style.display = "block"
+    localStorage.setItem('eleve', JSON.stringify(liste_eleve))
+    window.location.reload()
     
+})
+
